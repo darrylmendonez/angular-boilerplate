@@ -1,0 +1,134 @@
+<div class="row">
+  <br>
+</div>
+<div class="row">
+  <div class="col-md-3 offset-md-1 text-center">
+    <h5>{{ tAreas[0].name }}</h5>
+    <hr>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let disease of tAreas[0].diseases">
+        <a [routerLink]="['/trial/'] + disease.parameterName" (click)="loadData(disease.parameterName)">
+          <div class="card text-black bg-light mb-3">
+            <div class="card-body">
+              <div class="card-text">
+                {{ disease.primaryName }}
+                <div class="small-font">{{ disease.secondaryName }}</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 text-center">
+    <h5>{{ tAreas[1].name }}</h5>
+    <hr>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let disease of tAreas[1].diseases">
+        <a [routerLink]="['/trial/'] + disease.parameterName" (click)="loadData(disease.parameterName)">
+          <div class="card text-black bg-light mb-3">
+            <div class="card-body">
+              <div class="card-text">
+                {{ disease.primaryName }}
+                <div class="small-font">{{ disease.secondaryName }}</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1 text-center">
+    <h5>{{ tAreas[2].name }}</h5>
+    <hr>
+    <div class="row">
+      <div class="col-md-12" *ngFor="let disease of tAreas[2].diseases">
+        <a [routerLink]="['/trial/'] + disease.parameterName" (click)="loadData(disease.parameterName)">
+          <div class="card text-black bg-light mb-3">
+            <div class="card-body">
+              <div class="card-text">
+                {{ disease.primaryName }}
+                <div class="small-font">{{ disease.secondaryName }}</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 text-center">
+    <h5>{{ tAreas[3].name }}</h5>
+    <hr>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let disease of tAreas[3].diseases">
+        <a [routerLink]="['/trial/'] + disease.parameterName" (click)="loadData(disease.parameterName)">
+          <div class="card text-black bg-light mb-3">
+            <div class="card-body">
+              <div class="card-text">
+                {{ disease.primaryName }}
+                <div class="small-font">{{ disease.secondaryName }}</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 offset-md-1">
+    <div class="card text-white bg-secondary">
+      <div class="card-body">
+        Compound ({{ currentDisease.trials.length }})<br>
+        <h3 [innerHTML]="currentCompoundInfo.primaryName"></h3>
+        {{ currentCompoundInfo.secondaryName }}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="card text-white bg-secondary">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            TRIALS ({{ currentDisease.trials.length }})
+            <span *ngFor="let trial of currentDisease.trials; let i = index">
+              <span *ngIf="currentDisease.trials.length > 1">
+                <a [routerLink]="['/trial/'] + trial.parameterName" (click)="loadData(trial.parameterName)">
+                  {{ trial.name }}
+                </a>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="row" *ngIf="( (currentParams==='uc') || (currentParams==='ln') )">
+          <div class="col-md-6" *ngFor="let trial of currentDisease.trials">
+            <a [routerLink]="['/trial/'] + trial.parameterName" (click)="loadData(trial.parameterName)">
+              <div class="card bg-secondary">
+                <div class="card-body">
+                  <h5>Phase {{ trial.phase }}</h5>
+                  <h4>{{ currentTrial.name }}</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="row" *ngIf="( (currentParams!=='uc') && (currentParams!=='ln') )">
+          <div class="col-md-11 offset-md-1">
+            Phase {{ currentTrial.phase }}
+            <h4>{{ currentTrial.name }}</h4>
+            <ul>
+              <span *ngFor="let detail of currentTrial.details">
+                <li *ngIf="stringCheck(detail)">
+                  {{ detail }}
+                </li>
+                <ul *ngIf="!(stringCheck(detail))">
+                  <li *ngFor="let subDetail of detail">{{ subDetail }}</li>
+                </ul>
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

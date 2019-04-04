@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-sm-12">
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{ tAreas[0].name }}</h5>
+        <div class="card-body">
+          <div class="row">
+            <div *ngFor="let disease of tAreas[0].diseases; let i = index" class="col-sm-4">
+              <a [routerLink]="['/trial/'] + disease.parameterName">
+                <div class="card bg-light text-center">
+                  <div class="card-body">
+                    <p class="card-text">
+                      {{ disease.primaryName }}<br>
+                      <span class="small-font">{{ disease.secondaryName }}</span>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ tAreas[1].name }}</h5>
+          <div class="card-body">
+            <div class="row">
+              <div *ngFor="let disease of tAreas[1].diseases; let i = index" class="col-sm-6">
+                <a [routerLink]="['/trial/'] + disease.parameterName">
+                  <div class="card bg-light text-center">
+                    <div class="card-body">
+                      <p class="card-text">
+                        {{ disease.primaryName }}<br>
+                        <span class="small-font">{{ disease.secondaryName }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ tAreas[2].name }}</h5>
+          <div class="card-body">
+            <div class="row">
+              <div *ngFor="let disease of tAreas[2].diseases; let i = index" class="col-sm-12">
+                <a [routerLink]="['/trial/'] + disease.parameterName">
+                  <div class="card bg-light text-center">
+                    <div class="card-body">
+                      <p class="card-text">
+                        {{ disease.primaryName }}<br>
+                        <span class="small-font">{{ disease.secondaryName }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ tAreas[3].name }}</h5>
+          <div class="card-body">
+            <div class="row">
+              <div *ngFor="let disease of tAreas[3].diseases; let i = index" class="col-sm-6">
+                <a [routerLink]="['/trial/'] + disease.parameterName">
+                  <div class="card bg-light text-center">
+                    <div class="card-body">
+                      <p class="card-text">
+                        {{ disease.primaryName }}<br>
+                        <span class="small-font">{{ disease.secondaryName }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2 offset-sm-5">
+    <a [routerLink]="['/trial']">
+      <div class="card bg-secondary">
+        <div class="card-body">
+          <br>
+          <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+              <div class="card bg-light">
+                <div class="card-body">
+                  <div class="small-font text-center">Immunology</div>
+                  <div class="text-center">Pipeline</div>
+                  <div class="small-font text-right">At A Glance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <a [routerLink]="['/trial']" class="btn btn-primary"><i class="fas fa-chevron-left"></i></a>
+  </div>
+  <div class="col-sm-3 offset-sm-6 text-right">
+    <a [routerLink]="['/trial']" class="btn btn-primary"><i class="fas fa-chevron-left"></i></a>
+  </div>
+</div>
